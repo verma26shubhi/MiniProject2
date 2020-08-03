@@ -1,0 +1,39 @@
+<h1 style="text-align: center;">
+    PhoneBook App!
+</h1>
+<div class="alert alert-success" style="color: black; height: 300px;">
+    <label for="txtname">Contact Name:</label>
+    <input style="font-size: large;" type="text" [(ngModel)]="contact.name" class="form-control"><br/>
+    <label for="txtname">Contact Number:</label>
+    <input style="font-size: large;" type="number" [(ngModel)]="contact.phone" class="form-control"><br/>
+    
+    <button class="btn btn-success" (click)="displaycontact()" style="font-size: large;">Add to Contacts</button><br/>
+    &nbsp;
+    <button class="btn btn-success" (click)="sortcontact()" style="font-size: large;">Contacts Sorting</button>
+    <br/>
+    <br/>
+    <input style="font-size: large;" type="text" #contactname class="form-control" placeholder="Search by last name">&nbsp;<?br>
+    <button class="btn btn-success" (click)="findcontact(contactname)" style="font-size: large;">Find Contact</button>
+
+    <!-- <span class="glyphicon glyphicon-heart" style="color: red; font-size: 50px; "></span> -->
+</div>
+
+<div style="height: 20px;">
+    Contacts:
+</div>
+<hr/>
+<div id="div1" *ngFor="let ct of contacts" style="color: black;">
+    Name:{{ct.name}}<br/>
+    Phone:{{ct.phone}}<br/>
+    <button class="btn btn-danger" (click)="deletecontact(ct)" style="font-size: large;">Delete Contact</button>
+    &nbsp;
+    <button class="btn btn-danger" style="font-size: large;">Update Contact</button>
+</div>
+<div id="div1" *ngFor="let sc of sortedcontacts" style="color: black;">
+    Name:{{ct.name}}<br/>
+    Phone:{{ct.phone}}<br/>
+</div>
+<div id="div1" *ngFor="let shc of searchedcontacts" style="color: black;">
+    Name:{{shc.name}}<br/>
+    Phone:{{shc.phone}}<br/>
+</div>
